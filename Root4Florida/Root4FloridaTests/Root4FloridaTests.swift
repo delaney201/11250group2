@@ -9,25 +9,45 @@ import XCTest
 @testable import Root4Florida
 
 class Root4FloridaTests: XCTestCase {
+    
+    var coralGablesZipCode:Zone!
+    var freeholdZipCode:Zone!
+    
+    
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        coralGablesZipCode = Zone(zone: "33134")
+        freeholdZipCode = Zone(zone: "12431")
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        coralGablesZipCode = nil
+        freeholdZipCode = nil
+
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+        let zone = Zone(zone: "32608")
         self.measure {
-            // Put the code you want to measure the time of here.
+            zone.numberOnly()
         }
     }
+    
+    
+    func testZone() throws{
+
+        let z = Zone(zone: "3313a")
+        let zipCode = z.numberOnly().zone
+        let none = "None"
+        XCTAssertEqual(none,zipCode)
+
+    }
+
 
 }
